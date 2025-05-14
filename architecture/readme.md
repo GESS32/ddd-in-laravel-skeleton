@@ -59,7 +59,7 @@ architecture/
 │           └── CreateProductHandler.php
 └── Infrastructure/
     └── Persistence/
-        └── MySqlProductRepository.php
+        └── ProductRepositoryIlluminateDb.php
 ```
 
 ---
