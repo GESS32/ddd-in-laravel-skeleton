@@ -155,10 +155,21 @@ class CreateProductHandler
 }
 ```
 
+#### Note: instantiating a domain entity directly in the application layer is generally not a best practice.
+The example above is simplified and meant purely for illustration — there’s no complex business logic involved, so the direct creation of an entity may seem acceptable here.
+
+However, in real projects, creating an entity usually involves more than just assigning properties. For example, you might need to:
+* generate related value objects;
+* trigger domain events;
+* coordinate with other domain entities or services.
+
+When that's the case, it's better to **move the creation logic into the domain layer**, using a **factory** or a **domain service** that can be called from the application layer.
+
 ### 3.3. Infrastructure
 
 The infrastructure layer is responsible for interacting with external systems (e.g., DB).
 Example of a repository:
+
 ```php
 namespace Architecture\Infrastructure\Persistence;
 
@@ -166,7 +177,7 @@ use Architecture\Domains\Product\Repositories\ProductRepositoryInterface;
 use Architecture\Domains\Product\Entities\Product;
 use Illuminate\Support\Facades\DB;
 
-class MySqlProductRepository implements ProductRepositoryInterface
+class ProductRepositoryIlluminateDb implements ProductRepositoryInterface
 {
     public function save(Product $product): void
     {
@@ -194,6 +205,14 @@ class MySqlProductRepository implements ProductRepositoryInterface
     }
 }
 ```
+
+#### Note: in the persistence layer (infrastructure), we may _reconstruct_ a domain entity based on data from a database or external services.
+However, **we should not treat this as _creation_**, since entity creation may [involve business logic](#note-instantiating-a-domain-entity-directly-in-the-application-layer-is-generally-not-a-best-practice) — responsibilities that belong to the domain layer.
+
+In the example above, we're reconstructing a simple entity.  
+But if the entity had multiple fields represented by value objects, one possible approach to reduce [coupling](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Low_coupling) would be to change the repository interface to return a raw `array` instead of the entity itself.
+
+A dedicated domain service could then take on the responsibility of reconstructing the entity from that `array`, explicitly depending on the repository and encapsulating the reconstruction logic within the domain layer.
 
 ---
 
