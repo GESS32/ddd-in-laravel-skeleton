@@ -10,7 +10,8 @@ This skeleton serves as a starting point for developers looking to build scalabl
 ---
 
 ## Application Stack Technologies
-* [Laravel Framework (v11.0)](https://laravel.com/docs/11.x/releases)
+* [PHP (v8.2+)](https://www.php.net/releases/8_2_0.php)
+* [Laravel Framework (v12.0+)](https://laravel.com/docs/12.x/releases)
 
 ---
 
@@ -24,5 +25,5 @@ The project structure is designed to separate concerns and reflect the core prin
 ---
 
 ## Useful Links
-* [Laravel directory structure](https://laravel.com/docs/11.x/structure)
+* [Laravel directory structure](https://laravel.com/docs/12.x/structure)
 * [Awesome DDD](https://github.com/heynickc/awesome-ddd)
