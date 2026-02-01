@@ -21,10 +21,13 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Architecture\\": "architecture/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Application\\": "src/Application/",
+            "Domain\\": "src/Domain/",
+            "Infrastructure\\": "src/Infrastructure/",
+            "Presentation\\": "src/Presentation/",
+
+            "Database\\Factories\\": "laravel/database/factories/",
+            "Database\\Seeders\\": "laravel/database/seeders/"
         }
     },
     "autoload-dev": {

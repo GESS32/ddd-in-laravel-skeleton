@@ -19,8 +19,8 @@ This skeleton serves as a starting point for developers looking to build scalabl
 
 The project structure is designed to separate concerns and reflect the core principles of Domain-Driven Design:
 
-* **[app](./app/readme.md):** the default Laravel application structure;
-* **[architecture](./architecture/readme.md):** documentation and examples of DDD patterns.
+* **[laravel](./laravel/):** the default Laravel application structure;
+* **[src](./src/README.md):** documentation and examples of DDD patterns.
 
 ---
 
