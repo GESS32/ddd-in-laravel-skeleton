@@ -26,8 +26,9 @@
             "Infrastructure\\": "src/Infrastructure/",
             "Presentation\\": "src/Presentation/",
 
-            "Database\\Factories\\": "laravel/database/factories/",
-            "Database\\Seeders\\": "laravel/database/seeders/"
+            "Laravel\\": "laravel/",
+            "Laravel\\Database\\Factories\\": "laravel/database/factories/",
+            "Laravel\\Database\\Seeders\\": "laravel/database/seeders/"
         }
     },
     "autoload-dev": {
