@@ -1,22 +1,35 @@
-version: '3.8'
+version: "3.8"
 
 services:
     app:
         build:
+            context: ./sources/php
+            dockerfile: Dockerfile
             args:
                 USER_ID: ${HOST_UID}
                 GROUP_ID: ${HOST_GID}
-            context: ./php
-            dockerfile: Dockerfile
+        container_name: app
         networks:
-            - backend
+            - ddd-in-laravel-skeleton
         volumes:
             - ../:/app
-        command: ["sleep", "infinity"]
-        container_name: "app"
+        command: ["php-fpm", "-F"]
         tty: true
         stdin_open: true
 
+    nginx:
+        image: nginx:stable-alpine3.23
+        container_name: nginx
+        depends_on:
+            - app
+        ports:
+            - "${NGINX_PORT}:80"
+        networks:
+            - ddd-in-laravel-skeleton
+        volumes:
+            - ../:/app:ro
+            - ./sources/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
 networks:
-    backend:
+    ddd-in-laravel-skeleton:
         driver: bridge

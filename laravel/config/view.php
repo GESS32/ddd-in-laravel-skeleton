@@ -2,6 +2,6 @@
 
 return [
     'paths' => [
-        __DIR__ . '/../resources/views',
+        PROJECT_PATH . '/src/Presentation/Illuminate/resources/views',
     ],
 ];

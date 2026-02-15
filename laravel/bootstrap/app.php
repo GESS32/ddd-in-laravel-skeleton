@@ -4,14 +4,22 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
-$app = Application::configure(basePath: dirname(__DIR__))
+$laravelPath = dirname(__DIR__);
+$projectPath = realpath("$laravelPath/../");
+$providers = require __DIR__ . '/providers.php';
+
+define('LARAVEL_PATH', $laravelPath);
+define('PROJECT_PATH', $projectPath);
+
+$app = Application::configure(basePath: $projectPath)
+    ->withProviders($providers)
     ->withRouting(
-        web: realpath(__DIR__ . '/../routes/web.php'),
-        commands: realpath(__DIR__ . '/../routes/console.php'),
+        web: "$laravelPath/routes/web.php",
+        commands: "$laravelPath/routes/console.php",
         health: '/up',
     )
     ->withCommands([
-        realpath( __DIR__ . '/../../Presentation/Illuminate/Console/Commands'),
+        realpath( "$projectPath/src/Presentation/Illuminate/Console/Commands"),
     ])
     ->withMiddleware(function (Middleware $middleware) {
         //
@@ -20,11 +28,12 @@ $app = Application::configure(basePath: dirname(__DIR__))
         //
     })->create();
 
-$app->useConfigPath(realpath(__DIR__ . '/../config'));
-$app->useStoragePath(realpath(__DIR__ . '/../storage'));
-$app->usePublicPath(realpath(__DIR__ . '/../public'));
-$app->useEnvironmentPath(realpath(__DIR__ . '/../.env'));
-$app->useDatabasePath(realpath(__DIR__ . '/../database'));
-$app->useAppPath(realpath(__DIR__ . '/../'));
+$app->useBootstrapPath("$laravelPath/bootstrap");
+$app->useConfigPath("$laravelPath/config");
+$app->useStoragePath("$laravelPath/storage");
+$app->usePublicPath("$laravelPath/public");
+$app->useEnvironmentPath($laravelPath);
+$app->useDatabasePath("$laravelPath/database");
+$app->useAppPath($laravelPath);
 
 return $app;
