@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    app:
+        build:
+            args:
+                USER_ID: ${HOST_UID}
+                GROUP_ID: ${HOST_GID}
+            context: ./php
+            dockerfile: Dockerfile
+        networks:
+            - backend
+        volumes:
+            - ../:/app
+        command: ["sleep", "infinity"]
+        container_name: "app"
+        tty: true
+        stdin_open: true
+
+networks:
+    backend:
+        driver: bridge
