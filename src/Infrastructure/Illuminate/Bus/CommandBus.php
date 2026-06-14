@@ -10,6 +10,9 @@ use Illuminate\Bus\Dispatcher;
 
 final readonly class CommandBus implements CommandBusInterface
 {
+    /**
+     * @param  array<class-string<CommandInterface>, class-string>  $map
+     */
     public function __construct(private Dispatcher $dispatcher, array $map)
     {
         $this->dispatcher->map($map);

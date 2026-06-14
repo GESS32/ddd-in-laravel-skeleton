@@ -8,6 +8,10 @@ $laravelPath = dirname(__DIR__);
 $projectPath = realpath("$laravelPath/../");
 $providers = require __DIR__.'/providers.php';
 
+if ($projectPath === false) {
+    throw new RuntimeException('Unable to locate project path.');
+}
+
 define('LARAVEL_PATH', $laravelPath);
 define('PROJECT_PATH', $projectPath);
 

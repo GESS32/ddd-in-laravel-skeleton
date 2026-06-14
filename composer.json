@@ -13,6 +13,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "larastan/larastan": "^3.10",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
@@ -41,9 +42,10 @@
         "test": "phpunit",
         "format": "pint",
         "lint": "pint --test",
-        "analyse": "composer validate --strict",
+        "analyse": "phpstan analyse --memory-limit=1G",
         "check": [
             "@lint",
+            "composer validate --strict",
             "@analyse",
             "@test"
         ],

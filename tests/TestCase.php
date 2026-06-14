@@ -11,7 +11,9 @@ abstract class TestCase extends BaseTestCase
     {
         $app = require __DIR__.'/../laravel/bootstrap/app.php';
 
-        $this->traitsUsedByTest = array_flip(class_uses_recursive(static::class));
+        /** @var array<class-string, int> $traitsUsedByTest */
+        $traitsUsedByTest = array_flip(class_uses_recursive(static::class));
+        $this->traitsUsedByTest = $traitsUsedByTest;
 
         $app->make(Kernel::class)->bootstrap();
 

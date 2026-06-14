@@ -1,0 +1,21 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 6
+    paths:
+        - src
+        - laravel/bootstrap
+        - laravel/config
+        - laravel/routes
+        - tests
+    tmpDir: laravel/storage/framework/cache/phpstan
+    bootstrapFiles:
+        - phpstan-bootstrap.php
+    configDirectories:
+        - laravel/config
+    viewDirectories:
+        - laravel/resources/views
+    databaseMigrationsPath:
+        - laravel/database/migrations
+    disableSchemaScan: true

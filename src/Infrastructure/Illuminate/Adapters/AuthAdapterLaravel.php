@@ -11,16 +11,25 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthAdapterLaravel implements AuthInterface
 {
+    /**
+     * @param  array<string, mixed>  $credentials
+     */
     public function login(array $credentials, bool $remember = false): bool
     {
         return Auth::attempt($credentials, $remember);
     }
 
+    /**
+     * @param  array<string, mixed>  $credentials
+     */
     public function validate(array $credentials): bool
     {
         return Auth::validate($credentials);
     }
 
+    /**
+     * @param  array<string, mixed>  $credentials
+     */
     public function loginOnce(array $credentials): bool
     {
         return Auth::once($credentials);
@@ -41,6 +50,9 @@ class AuthAdapterLaravel implements AuthInterface
         return Auth::guest();
     }
 
+    /**
+     * @return array<string, mixed>|null
+     */
     public function getUser(): ?array
     {
         $user = Auth::user();
