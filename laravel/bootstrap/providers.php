@@ -1,8 +1,13 @@
 <?php
 
+use Infrastructure\Illuminate\DependencyInjection\CommandBusServiceProvider;
+use Infrastructure\Illuminate\DependencyInjection\GeneratorServiceProvider;
+use Infrastructure\Illuminate\DependencyInjection\QueryBusServiceProvider;
+use Infrastructure\Illuminate\DependencyInjection\ResourceServiceProvider;
+
 return [
-    Infrastructure\Illuminate\DependencyInjection\ResourceServiceProvider::class,
-    Infrastructure\Illuminate\DependencyInjection\GeneratorServiceProvider::class,
-    Infrastructure\Illuminate\DependencyInjection\CommandBusServiceProvider::class,
-    Infrastructure\Illuminate\DependencyInjection\QueryBusServiceProvider::class,
+    ResourceServiceProvider::class,
+    GeneratorServiceProvider::class,
+    CommandBusServiceProvider::class,
+    QueryBusServiceProvider::class,
 ];

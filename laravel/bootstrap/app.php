@@ -6,7 +6,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 
 $laravelPath = dirname(__DIR__);
 $projectPath = realpath("$laravelPath/../");
-$providers = require __DIR__ . '/providers.php';
+$providers = require __DIR__.'/providers.php';
 
 define('LARAVEL_PATH', $laravelPath);
 define('PROJECT_PATH', $projectPath);
@@ -19,7 +19,7 @@ $app = Application::configure(basePath: $projectPath)
         health: '/up',
     )
     ->withCommands([
-        realpath( "$projectPath/src/Presentation/Illuminate/Console/Commands"),
+        realpath("$projectPath/src/Presentation/Illuminate/Console/Commands"),
     ])
     ->withMiddleware(function (Middleware $middleware) {
         //

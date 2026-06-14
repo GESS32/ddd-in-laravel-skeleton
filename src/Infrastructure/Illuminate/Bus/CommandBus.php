@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Infrastructure\Illuminate\Bus;
 
-use Application\{Commands\CommandBusInterface, Commands\CommandInterface};
+use Application\Commands\CommandBusInterface;
+use Application\Commands\CommandInterface;
 use Illuminate\Bus\Dispatcher;
 
 final readonly class CommandBus implements CommandBusInterface

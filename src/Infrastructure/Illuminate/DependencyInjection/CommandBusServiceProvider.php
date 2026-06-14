@@ -13,7 +13,7 @@ final class CommandBusServiceProvider extends ServiceProvider
     {
         $this->app->singleton(
             abstract: CommandBusInterface::class,
-            concrete: fn() => $this->app->make(CommandBusInterface::class, [
+            concrete: fn () => $this->app->make(CommandBusInterface::class, [
                 'map' => [
                     // ...
                 ],

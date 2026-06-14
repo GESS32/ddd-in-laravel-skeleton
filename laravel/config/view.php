@@ -2,6 +2,6 @@
 
 return [
     'paths' => [
-        PROJECT_PATH . '/src/Presentation/Illuminate/resources/views',
+        PROJECT_PATH.'/src/Presentation/Illuminate/resources/views',
     ],
 ];

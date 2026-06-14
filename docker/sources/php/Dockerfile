@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine3.23
+FROM php:8.5-fpm-alpine3.23
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
@@ -23,8 +23,7 @@ RUN set -eux; \
         mbstring \
         pdo \
         pdo_mysql \
-        zip \
-        opcache; \
+        zip; \
     \
     apk del .build-deps
 

@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Infrastructure\Illuminate\Bus;
 
-use Application\{Queries\QueryBusInterface, Queries\QueryInterface};
-use Illuminate\Contracts\Container\{BindingResolutionException, Container};
+use Application\Queries\QueryBusInterface;
+use Application\Queries\QueryInterface;
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Container\Container;
 use RuntimeException;
 
 final class QueryBus implements QueryBusInterface
