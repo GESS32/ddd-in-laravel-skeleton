@@ -9,8 +9,8 @@ use RuntimeException;
 interface QueryBusInterface
 {
     /**
-     * @param class-string<QueryInterface> $queryClass
-     * @param class-string<QueryHandlerInterface> $queryHandlerClass
+     * @param  class-string<QueryInterface>  $queryClass
+     * @param  class-string<QueryHandlerInterface<QueryInterface, mixed>>  $queryHandlerClass
      */
     public function map(string $queryClass, string $queryHandlerClass): void;
 

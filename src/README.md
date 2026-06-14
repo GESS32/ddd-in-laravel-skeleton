@@ -216,7 +216,32 @@ A dedicated domain service could then take on the responsibility of reconstructi
 
 ---
 
-## 6. Advantages of the DDD Approach
+## 4. Enforced Dependency Rules
+
+Layer boundaries are enforced with Deptrac. Run the architecture check with:
+
+```bash
+composer architecture
+```
+
+The default validation workflow also runs this check:
+
+```bash
+composer check
+```
+
+The configured rules are:
+
+- `Domain` must not depend on Laravel, Infrastructure, Presentation, or Application code.
+- `Application` may depend on `Domain`, but not framework-specific infrastructure.
+- `Infrastructure` may depend on `Domain`, `Application`, and framework libraries.
+- `Presentation` may depend on `Application` and framework libraries.
+
+Framework libraries are grouped under the `Framework` layer in `deptrac.yaml` and currently include Laravel, Illuminate, Symfony, and PSR namespaces.
+
+---
+
+## 5. Advantages of the DDD Approach
 - Clear separation of responsibilities.
 - Ease of testing.
 - Better readability and maintainability of code.

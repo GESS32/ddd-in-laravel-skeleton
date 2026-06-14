@@ -11,7 +11,7 @@ namespace Application\Queries;
 interface QueryHandlerInterface
 {
     /**
-     * @param TQuery $query
+     * @param  TQuery  $query
      * @return TResult
      */
     public function handle(QueryInterface $query): mixed;

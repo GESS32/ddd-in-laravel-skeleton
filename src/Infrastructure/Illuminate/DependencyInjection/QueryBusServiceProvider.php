@@ -14,7 +14,7 @@ final class QueryBusServiceProvider extends ServiceProvider
     {
         $this->app->singleton(
             abstract: QueryBusInterface::class,
-            concrete: fn() => $this->app->make(QueryBus::class, [
+            concrete: fn () => $this->app->make(QueryBus::class, [
                 'map' => [
                     // ...
                 ],

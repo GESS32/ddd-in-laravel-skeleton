@@ -6,6 +6,7 @@ namespace Infrastructure\Illuminate\DependencyInjection;
 
 use Application\Commands\CommandBusInterface;
 use Illuminate\Support\ServiceProvider;
+use Infrastructure\Illuminate\Bus\CommandBus;
 
 final class CommandBusServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,7 @@ final class CommandBusServiceProvider extends ServiceProvider
     {
         $this->app->singleton(
             abstract: CommandBusInterface::class,
-            concrete: fn() => $this->app->make(CommandBusInterface::class, [
+            concrete: fn () => $this->app->make(CommandBus::class, [
                 'map' => [
                     // ...
                 ],

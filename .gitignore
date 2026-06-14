@@ -4,3 +4,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.phpunit.result.cache
+.deptrac.cache
