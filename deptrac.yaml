@@ -1,0 +1,48 @@
+deptrac:
+  paths:
+    - ./src
+
+  layers:
+    - name: Domain
+      collectors:
+        - type: classLike
+          value: ^Domain\\.*
+
+    - name: Application
+      collectors:
+        - type: classLike
+          value: ^Application\\.*
+
+    - name: Infrastructure
+      collectors:
+        - type: classLike
+          value: ^Infrastructure\\.*
+
+    - name: Presentation
+      collectors:
+        - type: classLike
+          value: ^Presentation\\.*
+
+    - name: Framework
+      collectors:
+        - type: classLike
+          value: ^Illuminate\\.*
+        - type: classLike
+          value: ^Laravel\\.*
+        - type: classLike
+          value: ^Symfony\\.*
+        - type: classLike
+          value: ^Psr\\.*
+
+  ruleset:
+    Domain: ~
+    Application:
+      - Domain
+    Infrastructure:
+      - Domain
+      - Application
+      - Framework
+    Presentation:
+      - Application
+      - Framework
+    Framework: ~

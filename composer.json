@@ -12,6 +12,7 @@
         "nesbot/carbon": "<3.12"
     },
     "require-dev": {
+        "deptrac/deptrac": "^4.6",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^3.10",
         "laravel/pint": "^1.13",
@@ -43,10 +44,12 @@
         "format": "pint",
         "lint": "pint --test",
         "analyse": "phpstan analyse --memory-limit=1G",
+        "architecture": "deptrac analyse --config-file=deptrac.yaml",
         "check": [
             "@lint",
             "composer validate --strict",
             "@analyse",
+            "@architecture",
             "@test"
         ],
         "post-autoload-dump": [

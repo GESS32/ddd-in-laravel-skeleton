@@ -36,5 +36,8 @@ jobs:
       - name: Run static analysis
         run: composer analyse
 
+      - name: Run architecture checks
+        run: composer architecture
+
       - name: Run tests
         run: composer test

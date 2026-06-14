@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Illuminate\DependencyInjection;
+namespace Presentation\Illuminate\Console;
 
 use Illuminate\Support\ServiceProvider;
 use Presentation\Illuminate\Console\Commands\Make\ChannelMakeCommand;
